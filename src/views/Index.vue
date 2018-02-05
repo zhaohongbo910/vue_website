@@ -8,24 +8,16 @@
                     </div>
             </div>
         </div>
-        <div  class="row">
-                <ul class="list-group"   >
-                  <li class="list-group-item"   v-for="list in todos" >{{list.text}}</li>
-                  <li class="list-group-item">{{reversedMessage }}</li>
-                   <li class="list-group-item"><router-link  to="/index/list">list</router-link> </li>
-                </ul>
-        </div>
-        <list :parentMessage="parentMessage"></list>
-        <div class="row"> 
-               <router-view   name="index_child"></router-view>
-        </div>
+         <list   :content="massage"  v-on:changeCart="changeCart"></list>
+         <chies :tods="todos" :content="massage"></chies>
     </div>
 </template>
 
 
 <script>
 
- import List from "@/components/list"
+ import list from "@/components/list"
+ import chies from "@/components/test"
 
 export default {
   name: 'index',
@@ -48,10 +40,14 @@ export default {
   methods:{
        reverse:function(){
             return  this.massage
+       },
+       changeCart(massage){
+                this.massage = massage
        }
   },
-  component:{
-       List
+  components:{
+       list,
+       chies,
   }
   
 }

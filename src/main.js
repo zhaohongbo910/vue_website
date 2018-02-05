@@ -2,7 +2,11 @@ import Vue from 'vue'
 import App from './App'
 import router from './router'
 import Vuex from 'vuex'
+import axios from 'axios'
 
+Vue.prototype.$ajax= axios
+
+Vue.prototype.HOST = '/api'
 
 Vue.use(Vuex); 
 Vue.config.silent = false
